@@ -9,5 +9,6 @@ namespace WcfService1.dao
    public interface ISnackDao
     {
          List<Product> GetProducts();
+         void BuyProduct(int code,double price);
     }
 }

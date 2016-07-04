@@ -16,37 +16,34 @@ namespace WcfService1
     {
 
         [OperationContract]
-        // [WebGet]
          [WebInvoke(Method ="POST", ResponseFormat =WebMessageFormat.Json)]
 
         List<Product> GetData();
 
         [OperationContract]
-        CompositeType GetDataUsingDataContract(CompositeType composite);
+        //[WebInvoke(Method = "POST")]
+         [WebInvoke(Method = "POST"  ,BodyStyle = WebMessageBodyStyle.WrappedRequest, RequestFormat = WebMessageFormat.Json)]
+        //void Buy(int code);
+         void Buy(BuyProduct buyproduct); 
 
-        // TODO: Add your service operations here
+
+
     }
 
-
-    // Use a data contract as illustrated in the sample below to add composite types to service operations.
     [DataContract]
-    public class CompositeType
+    public class BuyProduct
     {
-        bool boolValue = true;
-        string stringValue = "Hello ";
-
         [DataMember]
-        public bool BoolValue
-        {
-            get { return boolValue; }
-            set { boolValue = value; }
-        }
-
+        public int code { get; set; }
         [DataMember]
-        public string StringValue
-        {
-            get { return stringValue; }
-            set { stringValue = value; }
-        }
+        public double price { get; set; }
+        [DataMember]
+        public double amount { get; set; }
+
+
+
+
     }
+
+
 }

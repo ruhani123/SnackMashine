@@ -16,57 +16,59 @@ namespace WcfService1
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
 
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
-    //[EnableCors(origins: "*", headers: "*", methods: "*")]
-    [EnableCors(origins: "*", headers: "*", methods: "*")]
+
+    // [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class Service1 : IService1
     {
 
         [EnableCors(origins: "*", headers: "*", methods: "*")]
-      
-        public List<Product> GetData() 
+
+        public List<Product> GetData()
         {
             List<Product> list = null;
             System.Diagnostics.Debug.WriteLine("+++++++++++++++");
-            Console.WriteLine("+++++++++++++++");
             try {
-                // List<Product> list = new List<Product>();
+
                 ISnackService snackService = new SnackService();
-                 list = (List<Product>)snackService.GetProducts();
-                //Product product1 = new Product();
-                // product1.code = 2;
-                // product1.name = "test";
-                // product1.price = (float)1.5;
-                //list.Add(product1);
-                foreach(var a in list)
-                {
-                    Console.WriteLine(a);
-                    System.Diagnostics.Debug.WriteLine(a);
-                }
-                Console.WriteLine("------------------");
+                list = (List<Product>)snackService.GetProducts();
+
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
+                System.Diagnostics.Debug.WriteLine(e);
             }
-
 
             return list;
 
-           
-            
         }
 
-        public CompositeType GetDataUsingDataContract(CompositeType composite)
+          public void Buy(BuyProduct buyproduct)
+          {
+              try
+              {
+                  System.Diagnostics.Debug.WriteLine(buyproduct.code);
+                  if (buyproduct == null)
+                  {
+                      throw new ArgumentNullException("buyproduct");
+                  }
+
+                  System.Diagnostics.Debug.WriteLine(buyproduct.price);
+
+              }
+              catch (Exception e)
+              {
+                  System.Diagnostics.Debug.WriteLine(e);
+              }
+
+       
+    }
+
+       /* public void Buy(int code)
         {
-            if (composite == null)
-            {
-                throw new ArgumentNullException("composite");
-            }
-            if (composite.BoolValue)
-            {
-                composite.StringValue += "Suffix";
-            }
-            return composite;
-        }
+            System.Diagnostics.Debug.WriteLine(code);
+            System.Diagnostics.Debug.WriteLine("aa");
+        }*/
+
+
     }
 }

@@ -1660,3 +1660,36 @@ img.img-mouse {
 .team-v1 li > h3 {
 	color: #555;
 }
+
+.product-div {
+                width: 150px;
+                height:180px;
+                border:2;
+                border-color:#843534;
+            }
+            .number-div{
+                width: 50px;
+                height:50px;
+                background-color:#c6574b ;
+                margin-top: 5px;
+                border-radius: 10px !important;
+            }
+            .btn-style{
+
+                border:2;
+                border-color:#843534;
+            }
+            .label-style{
+                float:left;
+                border:0;
+                width:160px;
+                height:30px;
+                margin-left:15px;
+
+            }
+            .input-style{
+                width:110px;
+                height:30px;
+                border:2;
+                font-size:15px;
+            }

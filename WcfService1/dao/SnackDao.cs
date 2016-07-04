@@ -7,7 +7,7 @@ namespace WcfService1.dao
 {
     public class SnackDao : ISnackDao
     {
-        List<Product> ISnackDao.GetProducts()
+        public List<Product> GetProducts()
         {
             List<Product> list = new List<Product>(); 
             try
@@ -55,5 +55,12 @@ namespace WcfService1.dao
 
             return list;
         }
+
+        public void BuyProduct(int code,double price)
+        {
+
+        }
+
+        
     }
 }
