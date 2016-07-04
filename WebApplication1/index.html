@@ -13,62 +13,9 @@
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/style.css">
 
-        <!--CSS Header and Footer--> 
-        <link rel="stylesheet" href="/css/header-default.css">
-        <link rel="stylesheet" href="/css/footer-v2.css">
-
-        <!--CSS Implementing Plugins--> 
-        <link rel="stylesheet" href="/css/animate.css">
-        <link rel="stylesheet" href="/css/line-icons.css ">
-        <link rel="stylesheet" href="/css/font-awesome.min.css">
-        <link rel="stylesheet" href="/css/msc-style.css"> 
-        <link rel="stylesheet" href="/css/custom-hover-effects">
-        <link rel="stylesheet" href="/css/sky-forms">
-        <!--orkhan-->
-
-        <!--CSS Page Style--> 
-        <link rel="stylesheet" href="/css/profile.css">
-        <link rel="stylesheet" href="/css/shortcode_timeline2.css">
-
-        <!--CSS Customization--> 
-        <link rel="stylesheet" href="/css/custom.css">
-        <link rel="stylesheet" href="/css/dark-blue.css">
-        <link rel="stylesheet" href="/css/jquery.dataTables.min.css" >
-        <title>Virtual Machine</title>
-        <style>
-            .product-div {
-                width: 150px;
-                height:180px;
-                border:2;
-                border-color:#843534;
-            }
-            .number-div{
-                width: 50px;
-                height:50px;
-                background-color:#c6574b ;
-                margin-top: 5px;
-                border-radius: 10px !important;
-            }
-            .btn-style{
-
-                border:2;
-                border-color:#843534;
-            }
-            .label-style{
-                float:left;
-                border:0;
-                width:160px;
-                height:30px;
-                margin-left:15px;
-
-            }
-            .input-style{
-                width:110px;
-                height:30px;
-                border:2;
-                font-size:15px;
-            }
-        </style>
+    
+        <title>Snack Machine</title>
+       
 
 
     </head>
@@ -77,7 +24,7 @@
             <div class="col-lg-2 col-md-2 col-sm-2"></div>
             <div class="col-lg-8 col-md-8 col-sm-8">
                 <center>
-                    <h1 style="color: #761c19"><b>Virtual Machine</b></h1>
+                    <h1 style="color: #761c19"><b>Snack Machine</b></h1>
                 </center><hr><br>
                 <div class="row">
                     <div class="col-lg-7">
@@ -89,7 +36,7 @@
                         <br><br>
                         <div class="row">
                             <div class="col-sm-12">
-                                <label class="label-style" ><center><h4><b id="label_number"></b></h4></center></label>
+                                <label class="label-style bg-info" ><center><h4><b id="label_number"></b></h4></center></label>
                             </div>
                             <div class="col-sm-6">
                                 <div class="col-sm-4">
@@ -126,20 +73,20 @@
                                     <div class="btn btn-block number-div" id="number_0">0</div>
                                 </div>
                                 <div class="col-sm-4">
-                                    <div id="number_ok" class="btn btn-block number-div" style="background-color: #ea8557">OK</div>
+                                    <div disabled="disabled" id="number_ok" class="btn btn-block number-div" style="background-color: #ea8557">OK</div>
                                 </div>     
                             </div>
                             <div class="col-sm-6"></div>
                             <div class="col-sm-12">
                                 <div class="col-sm-7">
-                                    <br><br><center><h4><b>Meblegi daxil edin</b></h4></center>
+                                    <br><br><center><h4><b>Məbləği daxil edin</b></h4></center>
                                 </div>
                                 <div class="col-sm-5"></div>
                             </div>
                             <div class="col-sm-12">
                                 <div class="col-sm-7">
-                                    <input type="text" class="form-control">
-                                    <label id="label_price">0.50 AZN</label>
+                                    <input id="amount" type="text" class="form-control">
+                                    <label id="label_price"></label>
                                 </div>
                                 <div class="col-sm-5">
                                 </div>
@@ -171,15 +118,12 @@
         </div>
 
 
-        <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+       
         
         <script type="text/javascript" src="js/jquery.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         
-        <script type="text/javascript" src="js/msc-script.js"></script>
-       
-        <!-- JS Customization -->
-        <script type="text/javascript" src="js/custom.js"></script>
+        
         <script type="text/javascript" src="js/function.js"></script>
 
  
@@ -188,32 +132,6 @@
                 check();
             });
         </script>
-      <!--   <script type="text/javascript">
-            $(function (){
-                try{
-                    App.init();
-                    $('#label_number').html('');
-                    $('#number_1,#number_2,#number_3,#number_4,#number_5,#number_6,#number_7,#number_8,#number_9,#number_0').on('click',function(){
-                        var $obj = $(this);
-                        if($('#label_number').html() <= 12 && $('#label_number').html()< 2 && $obj.html()==1){
-                            $('#label_number').append('1');
-                            $('#number_3,#number_4,#number_5,#number_6,#number_7,#number_8,#number_9').attr('disabled','disabled')
-                        }else if($obj.html()!=1 && $obj.html()!='C'&& $obj.html()!='OK' && $obj.attr('disabled')==  undefined ){
-                            $('#label_number').append($obj.html());
-                        }
-                })
-                    
-                    
-                    
-                }catch(err){
-                    if(console){
-                        console.error(err)
-                    }
-                }
-                
-            });
-            
-            
-        </script> -->
+    
     </body>
 </html>

@@ -94,3 +94,35 @@ C:\Users\ruhani.aliyev\Documents\Visual Studio 2015\Projects\SnackMashine\WcfSer
 C:\Users\ruhani.aliyev\Documents\Visual Studio 2015\Projects\SnackMashine\WcfService1\obj\Debug\SnackMashine.csprojResolveAssemblyReference.cache
 C:\Users\ruhani.aliyev\Documents\Visual Studio 2015\Projects\SnackMashine\WcfService1\obj\Debug\WcfService1.dll
 C:\Users\ruhani.aliyev\Documents\Visual Studio 2015\Projects\SnackMashine\WcfService1\obj\Debug\WcfService1.pdb
+H:\wcf\SnackMashine\WcfService1\bin\ApplicationInsights.config
+H:\wcf\SnackMashine\WcfService1\bin\WcfService1.dll.config
+H:\wcf\SnackMashine\WcfService1\bin\WcfService1.dll
+H:\wcf\SnackMashine\WcfService1\bin\WcfService1.pdb
+H:\wcf\SnackMashine\WcfService1\bin\EntityFramework.dll
+H:\wcf\SnackMashine\WcfService1\bin\EntityFramework.SqlServer.dll
+H:\wcf\SnackMashine\WcfService1\bin\Microsoft.AI.Agent.Intercept.dll
+H:\wcf\SnackMashine\WcfService1\bin\Microsoft.AI.DependencyCollector.dll
+H:\wcf\SnackMashine\WcfService1\bin\Microsoft.AI.PerfCounterCollector.dll
+H:\wcf\SnackMashine\WcfService1\bin\Microsoft.AI.ServerTelemetryChannel.dll
+H:\wcf\SnackMashine\WcfService1\bin\Microsoft.AI.Web.dll
+H:\wcf\SnackMashine\WcfService1\bin\Microsoft.AI.WindowsServer.dll
+H:\wcf\SnackMashine\WcfService1\bin\Microsoft.ApplicationInsights.dll
+H:\wcf\SnackMashine\WcfService1\bin\Newtonsoft.Json.dll
+H:\wcf\SnackMashine\WcfService1\bin\System.Net.Http.Formatting.dll
+H:\wcf\SnackMashine\WcfService1\bin\System.Web.Cors.dll
+H:\wcf\SnackMashine\WcfService1\bin\System.Web.Http.Cors.dll
+H:\wcf\SnackMashine\WcfService1\bin\System.Web.Http.dll
+H:\wcf\SnackMashine\WcfService1\bin\EntityFramework.xml
+H:\wcf\SnackMashine\WcfService1\bin\EntityFramework.SqlServer.xml
+H:\wcf\SnackMashine\WcfService1\bin\Microsoft.AI.DependencyCollector.xml
+H:\wcf\SnackMashine\WcfService1\bin\Microsoft.AI.ServerTelemetryChannel.xml
+H:\wcf\SnackMashine\WcfService1\bin\Microsoft.AI.Web.xml
+H:\wcf\SnackMashine\WcfService1\bin\Microsoft.AI.WindowsServer.xml
+H:\wcf\SnackMashine\WcfService1\bin\Microsoft.ApplicationInsights.xml
+H:\wcf\SnackMashine\WcfService1\bin\Newtonsoft.Json.xml
+H:\wcf\SnackMashine\WcfService1\bin\System.Net.Http.Formatting.xml
+H:\wcf\SnackMashine\WcfService1\bin\System.Web.Http.xml
+H:\wcf\SnackMashine\WcfService1\bin\System.Web.Http.Cors.xml
+H:\wcf\SnackMashine\WcfService1\obj\Debug\SnackMashine.csprojResolveAssemblyReference.cache
+H:\wcf\SnackMashine\WcfService1\obj\Debug\WcfService1.dll
+H:\wcf\SnackMashine\WcfService1\obj\Debug\WcfService1.pdb
