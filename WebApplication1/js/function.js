@@ -92,8 +92,14 @@
 
 
         $('#number_ok').off('click').on('click', function () {
+
+            var attr = $(this).attr('disabled');
+            if (typeof attr !== typeof undefined && attr !== false) {
+                return false;
+            }
             var text = $('#label_number').html();
             $('#number_cancel').attr("disabled", "disabled");
+            $('#amount').removeAttr('disabled');
             
             if (text.length > 0) {
                 labelPrice.html('');
@@ -118,17 +124,18 @@
 
 
         $('#btn_ok').off('click').on('click', function () {
-            var amount = $('#amount').val().trim();
-            var code = $('#label_number').html().trim();
-            var price = $('#label_price').html().trim();
-          
-
 
             var count = $('div[code="' + code + '"]').find('div[count]').attr('count');
             if (parseInt(count) == 0) {
-                alert('Bu məhsul bitib,digər məhsul seçin');
+                alert('Bu məhsul bitib, digər məhsul seçin');
                 return false;
             }
+
+            
+            var amount = $('#amount').val().trim();        
+            var code = $('#label_number').html().trim();
+            var price = $('#label_price').html().trim();
+
 
             var data = {
                 "buyProduct": {
@@ -151,7 +158,7 @@
                 success: function (result) {
                     $('#return_price').val('');
                     $('b[message]').html('');
-                    $('b[message]').html('Təşəkkür edirik!Qalıq məbləğ');
+                    $('b[message]').html('Təşəkkür edirik! Qalıq məbləğ');
                     $('#return_price').val(result);
                 }
             });
