@@ -9,6 +9,6 @@ namespace WcfService1.business
     interface ISnackService
     {
         List<Product> GetProducts();
-        void BuyProduct(int code,double price);
+        double BuyProduct(int code,double price, double amount);
     }
 }

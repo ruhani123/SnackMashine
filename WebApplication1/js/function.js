@@ -19,7 +19,8 @@
                                       +      '<div class="col-md-12" >Adı:  <label>'+k.name+'</label></div>'
                                        +    ' <div class="col-md-12">Çəki(Ölçü):  <label>'+k.size+' '+k.Type1.name+'</label></div>'
                                         + '<div price="'+k.price+'" class="col-md-12">Qiymət: ' + k.price + ' <label>(AZN)</label></div>'
-                                        +'<div class="col-md-12">Kod: '+k.code+'</div>'
+                                        + '<div class="col-md-12">Kod: ' + k.code + '</div>'
+                                        +'<div count="'+k.count+'" class="col-md-12">Sayı: '+k.count+ '</div>'
                                         +'</div>'
                                    +' </div>'
                                 +'</div>'
@@ -30,18 +31,32 @@
             }
         })
 
-    
+        $('#amount').val('');
+        $('#return_price').val('');
         var labelPrice = $('#label_price');
 
-        $('#number_1,#number_2,#number_3,#number_4,#number_5,#number_6,#number_7,#number_8,#number_9,#number_0').off('click').on('click', function () {
-            var $obj = $(this);
-        
-            if ($('#label_number').html() <= 12 && $('#label_number').html() < 2 && $obj.html() == 1) {
-                $('#label_number').append('1');
-                $('#number_3,#number_4,#number_5,#number_6,#number_7,#number_8,#number_9').attr('disabled', 'disabled')
-            } else if ($obj.html() != 1 && $obj.html() != 'C' && $obj.html() != 'OK' && $obj.attr('disabled') == undefined) {
-                $('#label_number').append($obj.html());
+
+        $('div[number-div]').off('click').on('click', function () {
+            var obj = $(this);
+            var val = parseInt(obj.html().trim());
+
+            var attr = obj.attr('disabled');
+            if (typeof attr !== typeof undefined && attr !== false) {
+                return false;
             }
+            
+            if ($('#label_number').html().length == 0) {
+                if (val == 1) {
+                    $('div[number-div]').not('#number_0,#number_1,#number_2').attr("disabled", "disabled");
+                    $('#number_0').removeAttr('disabled');
+                } else{
+                    $('div[number-div]').attr("disabled", "disabled");
+                }
+            } else if ($('#label_number').html().length==1) {
+                $('div[number-div]').attr("disabled", "disabled");
+                
+            }
+                 $('#label_number').append(val);
             var text = $('#label_number').html();
             if (text.length > 0) {
                 $('#number_ok').removeAttr('disabled');
@@ -52,18 +67,29 @@
             $('div[code="' + text + '"]').addClass('bg-info');
         });
 
+
         $('#number_cancel').off('click').on('click', function () {         
             var text = $('#label_number').html();
-            if (text.length > 0 && !this.hasAttr('disabled')) {
+            if (text.length > 0 && !$(this).is('disabled')) {
                 var shortText = text.substr(0, (text.length - 1));
                 $('#label_number').html(shortText);
                 $('div[code]').removeClass('bg-info');
                 $('div[code="' + shortText + '"]').addClass('bg-info');
                 if (shortText.length == 0) {
                     $('#number_ok').attr("disabled", "disabled");
+                    $('div[number-div]').not('#number_0').removeAttr('disabled');
+                    $('#number_0').attr('disabled', 'disabled');
+                } else {
+                    if (shortText == 1) {
+                        $('div[number-div]').not('#number_0,#number_1,#number_2').attr("disabled", "disabled");
+                        $('#number_0,#number_1,#number_2').removeAttr('disabled');
+                    }
                 }
+
+                
             }
         });
+
 
         $('#number_ok').off('click').on('click', function () {
             var text = $('#label_number').html();
@@ -75,6 +101,7 @@
                 labelPrice.html(price)
             }
         });
+
 
         $('#amount').off('focusout').on('focusout', function () {
             var amount = $('#amount').val();
@@ -89,22 +116,43 @@
             }
         });
 
+
         $('#btn_ok').off('click').on('click', function () {
             var amount = $('#amount').val().trim();
             var code = $('#label_number').html().trim();
             var price = $('#label_price').html().trim();
-            var data = {
-                code: code,
-                amount: amount,
-                price:price
+          
+
+
+            var count = $('div[code="' + code + '"]').find('div[count]').attr('count');
+            if (parseInt(count) == 0) {
+                alert('Bu məhsul bitib,digər məhsul seçin');
+                return false;
             }
+
+            var data = {
+                "buyProduct": {
+                    "code": code,
+                    "amount": amount,
+                    "price": price
+                }
+
+            };
+            var jsondata = JSON.stringify(data);
             $.ajax({
                 url:"http://localhost:28586/Service1.svc/Web/Buy",
                 type: 'POST',
                 dataType: 'json',
-                data: data,
+                contentType: "application/json",
+                data: jsondata,
+                beforeSend:function(){
+                    $('#btn_ok').attr("disabled", "disabled");
+                },
                 success: function (result) {
-
+                    $('#return_price').val('');
+                    $('b[message]').html('');
+                    $('b[message]').html('Təşəkkür edirik!Qalıq məbləğ');
+                    $('#return_price').val(result);
                 }
             });
             

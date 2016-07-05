@@ -22,9 +22,8 @@ namespace WcfService1
 
         [OperationContract]
         //[WebInvoke(Method = "POST")]
-         [WebInvoke(Method = "POST"  ,BodyStyle = WebMessageBodyStyle.WrappedRequest, RequestFormat = WebMessageFormat.Json)]
-        //void Buy(int code);
-         void Buy(BuyProduct buyproduct); 
+         [WebInvoke(Method = "POST"  ,BodyStyle = WebMessageBodyStyle.WrappedRequest, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+         double Buy(BuyProduct buyProduct); 
 
 
 
@@ -34,11 +33,29 @@ namespace WcfService1
     public class BuyProduct
     {
         [DataMember]
-        public int code { get; set; }
+        public int code;
+
+        public int Code
+        {
+            get { return code; }
+            set { code = value; }
+        }
         [DataMember]
-        public double price { get; set; }
+        public double price;
+
+        public double Price
+        {
+            get { return price; }
+            set { price = value; }
+        }
         [DataMember]
-        public double amount { get; set; }
+        public double amount;
+
+        public double Amount
+        {
+            get { return amount; }
+            set { amount = value; }
+        }
 
 
 

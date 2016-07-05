@@ -21,7 +21,7 @@ namespace WcfService1
     public class Service1 : IService1
     {
 
-        [EnableCors(origins: "*", headers: "*", methods: "*")]
+        //[EnableCors(origins: "*", headers: "*", methods: "*")]
 
         public List<Product> GetData()
         {
@@ -42,32 +42,33 @@ namespace WcfService1
 
         }
 
-          public void Buy(BuyProduct buyproduct)
+          public double Buy(BuyProduct buyProduct)
           {
+            double remain = 0;
               try
               {
-                  System.Diagnostics.Debug.WriteLine(buyproduct.code);
-                  if (buyproduct == null)
+                System.Diagnostics.Debug.WriteLine(buyProduct.code);
+                  if (buyProduct == null)
                   {
-                      throw new ArgumentNullException("buyproduct");
+                      throw new ArgumentNullException("buyProduct");
                   }
 
-                  System.Diagnostics.Debug.WriteLine(buyproduct.price);
+                ISnackService snackService = new SnackService();
 
-              }
+                remain = (double)snackService.BuyProduct(buyProduct.code, buyProduct.price, buyProduct.amount);
+
+
+            }
               catch (Exception e)
               {
                   System.Diagnostics.Debug.WriteLine(e);
               }
 
-       
-    }
+            return remain;
 
-       /* public void Buy(int code)
-        {
-            System.Diagnostics.Debug.WriteLine(code);
-            System.Diagnostics.Debug.WriteLine("aa");
-        }*/
+        }
+
+  
 
 
     }

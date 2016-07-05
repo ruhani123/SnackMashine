@@ -18,9 +18,9 @@ namespace WcfService1.business
             return snackDao.GetProducts();
         }
 
-        public void BuyProduct(int code,double price)
+        public double BuyProduct(int code,double price, double amount)
         {
-            snackDao.BuyProduct(code,price);
+           return snackDao.BuyProduct(code,price,amount);
         }
     }
 }
